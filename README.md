@@ -1,3 +1,6 @@
+1. Open a terminal and run `./run-react`
+2. Open another terminal and run `./run-flask`
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
