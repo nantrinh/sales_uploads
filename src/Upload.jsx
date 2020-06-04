@@ -1,22 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function Upload() {
-  const [showSubmit, setShowSubmit] = useState(false);
+  const [file, setFile] = useState(null);
 
   const onChangeHandler = (event) => {
+    setFile(event.target.files[0]);
     console.log(event.target.files[0]);
-    setShowSubmit(true);
   };
 
   const onSubmit = () => {
-    console.log("submit");
+    uploadFile(file);
+  };
+
+  const uploadFile = (file) => {
+    fetch("/sales", {
+      // content-type header should not be specified
+      method: "POST",
+      body: file,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("this is a success");
+        console.log(data);
+      })
+      .catch((error) => {
+        console.log("this is an error");
+        console.log(error);
+      });
   };
 
   return (
     <form method="post" action="#" id="#">
       <label>Upload Sales Data</label>
       <input type="file" name="file" onChange={onChangeHandler} />
-      {showSubmit && (
+      {file && (
         <button type="button" onClick={onSubmit}>
           Upload
         </button>
