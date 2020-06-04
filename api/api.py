@@ -1,21 +1,15 @@
 import time
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def home():
-    return '''<h1>Distant Reading Archive</h1>
-<p>A prototype API for distant reading of science fiction novels.</p>'''
-
 @app.route('/sales', methods=['POST'])
 def upload_sales():
-    return NotImplementedError
-
-@app.route('/sales/revenue', methods=['GET'])
-def revenue():
-    return NotImplementedError
-
-@app.route('/time')
-def get_current_time():
-    return {'time': time.time()}
+    data = request.get_data(as_text=True)
+    data = [line.strip().split(',') for line in data.split('\n')]
+    print(data)
+    print("\n\n")
+    print(data[0])
+    for line in data[1:]:
+        print(line)
+    return 'Submitted form' 
