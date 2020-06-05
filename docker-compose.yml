@@ -7,6 +7,8 @@ services:
     build: ./postgres
     container_name: postgres
     # exposes port 5432 by default
+    ports:
+      - 5432:5432
     expose:
       - $POSTGRES_PORT
     environment:
