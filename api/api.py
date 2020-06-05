@@ -1,5 +1,5 @@
 import time
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
@@ -10,6 +10,16 @@ def upload_sales():
     print(data)
     print("\n\n")
     print(data[0])
+
+    # get indexes of quantity and price
+#     quantity_index =
+#     price_index = 
+#    for field in data[0]:
+#        if 'price' in field.lower():
+
+    num_rows = len(data[1:])
+    revenue = 0
+
     for line in data[1:]:
         print(line)
-    return 'Submitted form' 
+    return jsonify({'num_rows': 20, 'revenue': 100})
