@@ -19,11 +19,8 @@ class Sale(Base):
 # The Session class will create new Session objects which are bound to the database
 Session = sessionmaker()
 Session.configure(bind=engine)
-session = Session()
 
-sales = [
-    Sale(customer_name='BTS2', price='abc', quantity=0, merchant_name=68, merchant_address='MA2')
-] 
-
-session.add_all(sales)
-session.commit()
+def persist(sales):
+    session = Session()
+    session.add_all(sales)
+    session.commit()
