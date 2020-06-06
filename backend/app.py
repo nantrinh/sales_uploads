@@ -8,11 +8,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://admin:password@localhost:5
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-db.create_all()
 
 # import here to prevent circular reference
 import models
 import helper
+
+db.create_all()
 
 @app.route('/', methods=['GET'])
 def hello():
