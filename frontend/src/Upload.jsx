@@ -17,7 +17,7 @@ function Upload() {
   };
 
   const uploadFile = (file) => {
-    fetch("/sales", {
+    fetch("http://localhost:5000/sales", {
       // content-type header should not be specified
       method: "POST",
       body: file,

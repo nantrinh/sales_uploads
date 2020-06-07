@@ -21,18 +21,16 @@ services:
   frontend:
     build: ./frontend
     hostname: frontend
-    # domainname: frontend.com
     container_name: frontend
     ports:
       - "3000:80"
 
-#  backend:
-#    build: ./backend
-#    hostname: backend
-#    # domainname: backend.com
-#    container_name: backend
-#    ports:
-#      - 5000:5000
+  backend:
+    build: ./backend
+    hostname: backend
+    container_name: backend
+    ports:
+      - 5000:5000
 
 volumes:
   postgres:
