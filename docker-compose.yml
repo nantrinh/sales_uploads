@@ -21,6 +21,7 @@ services:
   frontend:
     build: ./frontend
     hostname: frontend
+    domainname: frontend.com
     container_name: frontend
     ports:
       - "3000:80"

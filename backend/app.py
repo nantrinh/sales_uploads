@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import cross_origin 
 
 from api.models import db, User, Sale, parse, persist
 
@@ -17,6 +18,7 @@ def hello():
     return 'Hello world'
 
 @app.route('/sales', methods=['POST'])
+@cross_origin('http://frontend.com')
 def upload_sales():
    data = request.get_data(as_text=True)
    parsed = parse(data)
