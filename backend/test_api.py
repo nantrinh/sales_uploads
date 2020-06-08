@@ -78,7 +78,7 @@ fields = ('customer_name', 'description', 'price',
 
 
 class AppTest(unittest.TestCase):
-    def test_upload(self):
+    def test_row_and_revenue_calculation(self):
         for num_rows in range(1, 100):
             print(f'Sending csv with {num_rows} rows')
             data, revenue = fake.sales_csv(header=fields, num_rows=num_rows)
@@ -88,6 +88,10 @@ class AppTest(unittest.TestCase):
             self.assertEqual(r.status_code, 200)
             self.assertEqual(resp['num_rows'], num_rows)
             self.assertEqual(resp['revenue'], revenue)
+
+    @unittest.skip("not implemented")
+    def test_persistence(self):
+        return NotImplementedError
 
 
 def write_example_csv(num_rows):
