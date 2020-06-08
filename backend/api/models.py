@@ -44,7 +44,6 @@ def parse(data):
     # customer_name, description, price, quantity, merchant_name, merchant_address
     fields = ['customer_name', 'description', 'price',
               'quantity', 'merchant_name', 'merchant_address']
-
     num_rows = len(data[1:])
     revenue = 0
     sales = []
