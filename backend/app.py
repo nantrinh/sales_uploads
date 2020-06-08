@@ -30,9 +30,8 @@ def upload_sales():
     return jsonify({'num_rows': parsed['num_rows'],
                     'revenue': parsed['revenue']})
 
+
 # automatically import these items into flask shell, for ease of debugging
-
-
 @app.shell_context_processor
 def make_shell_context():
     return dict(db=db, User=User, Sale=Sale)
