@@ -11,6 +11,8 @@
 ## Demo
 
 ![](https://i.imgur.com/VsEK51P.gif)
+<img src="https://your-image-url.type" width="300">
+
 Note: File explorer opens up in another window when the "Choose File" button is clicked.
 
 Run `./connect-to-db.sh` to connect to the PostgreSQL database.
