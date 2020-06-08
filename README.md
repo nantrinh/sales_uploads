@@ -8,6 +8,12 @@
 - `docker-compose up -d --build`
 - Navigate to `http://localhost:3000/`
 
+File constraints:
+
+- The file must be a CSV.
+- The columns must be in this order: Customer Name, Item Description, Item Price, Quantity, Merchant Name, Merchant Address
+- The first line in the CSV is assumed to be the header and discarded in parsing.
+
 ## Demo
 
 <img src="https://i.imgur.com/VsEK51P.gif" width="600">
