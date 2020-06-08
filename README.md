@@ -23,13 +23,21 @@ Sample data:
 ## TODOs and considerations
 
 - Authentication
-- Tests
+- More tests
+- Stream the download on the server side
 - Backend
   - Use environment variables for the database params
   - Use configs for development, production, and testing
-  - Check the content-length before reading into memory; multi-threading may be desirable to process large files
+  - Be more flexible about column order (don't assume the columns are ordered a certain way, and do not assume all of the columns are there)
+  - Be more flexible about addresses (state, country, zip)
+  - Handle commas in merchant names or descriptions
+- Database
+  - Is 250 chars enough for descriptions, merchant names, etc?
+  - Impose limits on price and quantity values?
 - Frontend
   - Can do some validation before sending the request to the backend, for example, are all the required fields present
+  - Can restrict to csv files only
+  - Display revenue with commas
 
 ## Scaling Up
 
