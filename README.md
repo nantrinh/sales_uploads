@@ -11,7 +11,7 @@
 ## Demo
 
 ![](https://i.imgur.com/VsEK51P.gif)
-<img src="https://your-image-url.type" width="300">
+<img src="https://i.imgur.com/VsEK51P.gif" width="300">
 
 Note: File explorer opens up in another window when the "Choose File" button is clicked.
 
