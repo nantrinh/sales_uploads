@@ -5,10 +5,10 @@ services:
     # https://hub.docker.com/_/postgres
     # docker exec -it postgres psql --username=$POSTGRES_USER --dbname=$POSTGRES_DB
     build: ./postgres
+    hostname: $POSTGRES_HOST
     container_name: postgres
-    # exposes port 5432 by default
     ports:
-      - 5432:5432
+      - "5432:$POSTGRES_PORT"
     expose:
       - $POSTGRES_PORT
     environment:
@@ -17,6 +17,33 @@ services:
       POSTGRES_DB: $POSTGRES_DB
     volumes:
       - postgres:/var/lib/postgresql/data
+
+  frontend:
+    build: ./frontend
+    hostname: frontend
+    domainname: frontend.com
+    container_name: frontend
+    ports:
+      - "3000:80"
+
+  backend:
+    build: ./backend
+    hostname: backend
+    container_name: backend
+    ports:
+      - "5000:5000"
+    command:
+      - bash
+      - -c
+      - |
+        apt-get install netcat -y
+        while ! nc -z $POSTGRES_HOST $POSTGRES_PORT 
+        do
+          echo "Waiting for Postgres"
+          sleep 5 
+        done
+        echo "Postgres Ready"
+        /app/run.sh
 
 volumes:
   postgres:
