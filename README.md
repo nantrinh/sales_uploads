@@ -10,16 +10,14 @@
 
 ## Demo
 
-![](https://i.imgur.com/VsEK51P.gif)
-
-<blockquote class="imgur-embed-pub" lang="en" data-id="VsEK51P"><a href="//imgur.com/VsEK51P"></a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
+![](https://imgur.com/VsEK51P)
 Note: File explorer opens up in another window when the "Choose File" button is clicked.
 
 Run `./connect-to-db.sh` to connect to the PostgreSQL database.
 Run `SELECT * FROM sales;` to view the inserted rows.
 
 Sample data:
-![](https://i.imgur.com/EQG8GNP.png)
+![](https://imgur.com/EQG8GNP)
 
 ## TODOs and considerations
 
