@@ -19,9 +19,9 @@ def hello():
     return 'Hello world'
 
 
-# TODO: need to add configs to change cross origin restrictions when testing
+# TODO: add configs to change cross origin restrictions when testing
 @app.route('/sales', methods=['POST'])
-@cross_origin('http://frontend.com')
+@cross_origin(origins=['http://localhost:3000', 'http://127.0.0.1'])
 def upload_sales():
     # TODO: stream data in chunks
     data = request.get_data(as_text=True)
