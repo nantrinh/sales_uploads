@@ -10,14 +10,14 @@
 
 ## Demo
 
-![](https://imgur.com/VsEK51P)
+![](https://i.imgur.com/VsEK51P.gif)
 Note: File explorer opens up in another window when the "Choose File" button is clicked.
 
 Run `./connect-to-db.sh` to connect to the PostgreSQL database.
 Run `SELECT * FROM sales;` to view the inserted rows.
 
 Sample data:
-![](https://imgur.com/EQG8GNP)
+![](https://i.imgur.com/EQG8GNP.png)
 
 ## TODOs and considerations
 
