@@ -19,20 +19,11 @@ def hello():
     return 'Hello world'
 
 
-# TODO: restrict CORS except for when testing; need to add configs 
-#@cross_origin('http://frontend.com')
+# TODO: need to add configs to change cross origin restrictions when testing
 @app.route('/sales', methods=['POST'])
-@cross_origin()
+@cross_origin('http://frontend.com')
 def upload_sales():
-# https://requests.readthedocs.io/en/master/user/quickstart/#raw-response-content
-# It is strongly recommended that you open files in binary mode.
-# This is because Requests may attempt to provide the
-# Content-Length header for you, and if it does this value
-# will be set to the number of bytes in the file.
-# Errors may occur if you open the file in text mode.
-# with open(filename, 'wb') as fd:
-#     for chunk in r.iter_content(chunk_size=128):
-#         fd.write(chunk)
+    # TODO: stream data in chunks
     data = request.get_data(as_text=True)
     parsed = parse(data)
     persist(parsed['sales'])
@@ -40,6 +31,8 @@ def upload_sales():
                     'revenue': parsed['revenue']})
 
 # automatically import these items into flask shell, for ease of debugging
+
+
 @app.shell_context_processor
 def make_shell_context():
     return dict(db=db, User=User, Sale=Sale)
