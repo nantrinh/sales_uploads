@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from flask_cors import cross_origin 
+from flask_cors import cross_origin
 
 from api.models import db, User, Sale, parse, persist
 
@@ -13,23 +13,27 @@ db.app = app
 db.init_app(app)
 db.create_all()
 
+
 @app.route('/', methods=['GET'])
 def hello():
     return 'Hello world'
 
+
 @app.route('/sales', methods=['POST'])
 @cross_origin('http://frontend.com')
 def upload_sales():
-   data = request.get_data(as_text=True)
-   parsed = parse(data)
-   persist(parsed['sales'])
-   return jsonify({'num_rows': parsed['num_rows'],
-                   'revenue': parsed['revenue']})
+    data = request.get_data(as_text=True)
+    parsed = parse(data)
+    persist(parsed['sales'])
+    return jsonify({'num_rows': parsed['num_rows'],
+                    'revenue': parsed['revenue']})
+
 
 # automatically import these items into flask shell, for ease of debugging
 @app.shell_context_processor
 def make_shell_context():
     return dict(db=db, User=User, Sale=Sale)
+
 
 if __name__ == "__main__":
     # need to bind to all IPs
