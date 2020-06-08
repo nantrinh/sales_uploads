@@ -10,7 +10,7 @@
 
 ## Demo
 
-<img src="https://i.imgur.com/VsEK51P.gif" width="500">
+<img src="https://i.imgur.com/VsEK51P.gif" width="600">
 
 Note: File explorer opens up in another window when the "Choose File" button is clicked.
 
