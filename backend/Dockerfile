@@ -6,6 +6,7 @@ COPY requirements.txt  .
 RUN apt-get update \
     && apt-get install -y gcc libpq-dev \
     && pip install -r requirements.txt
-COPY . /app
-# bind to all IPs
-CMD ["flask", "run", "--host=0.0.0.0"]
+RUN mkdir api/
+COPY api/* ./api/
+COPY app.py run.sh ./ 
+#ENTRYPOINT ["./app/run.sh"]
