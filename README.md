@@ -58,7 +58,6 @@ File constraints:
 ## Scaling Up
 
 - Consider another framework for the backend with better performance (e.g., [FastAPI](https://fastapi.tiangolo.com/), [Starlette](https://www.starlette.io/))
-- Consider using Go instead for the backend
 - To scale up writes to the database:
   - Consider using another data store, for example Cassandra. Clients can connect to any node and issue writes to that node. Each node knows which of the other nodes are responsible for certain subsets of the data, so it can forward the writes to the appropriate nodes. Quorums can be used for consistent writes and reads.
     - Benefits:
